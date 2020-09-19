@@ -13,24 +13,11 @@ class _ReadPageState extends State<ReadPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        title: Text("Read Users"),
-      ),
-      body: widget.isLoading
-          ? Center(
-              child: CircularProgressIndicator(),
-            )
-          : ListView.builder(
-              itemCount: widget.users.leght,
-              itemBuilder: (ctx, index) {
-                return ListTile(
-                  leading: Icon(Icons.person),
-                  title: Text("Name: ${widget.users.users[index].name}"),
-                  subtitle:
-                      Text("Password: ${widget.users.users[index].password}"),
-                );
-              },
-            ),
-    );
+        appBar: AppBar(
+          title: Text("Read Users"),
+        ),
+        body: Center(
+          child: CircularProgressIndicator(),
+        ));
   }
 }

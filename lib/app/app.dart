@@ -37,11 +37,10 @@ class _MyAppState extends State<MyApp> {
           primaryColor: Colors.black,
           textTheme: TextTheme(title: GoogleFonts.fredokaOne())),
       routes: {
-        AppRoutes.home: (context) => HomePage(),
+        AppRoutes.home: (context) => HomePage(users),
         AppRoutes.createPage: (context) => CreatePage(users),
         AppRoutes.readPage: (context) => ReadPage(users, isLoading),
-        AppRoutes.updatePage: (context) => UpdatePage(),
-        AppRoutes.deletePage: (context) => DeletePage(),
+        AppRoutes.deletePage: (context) => DeletePage(users),
       },
     );
   }

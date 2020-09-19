@@ -2,10 +2,12 @@ import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:simple_flutter_crud/app/data/model/user.dart';
 import 'package:simple_flutter_crud/app/data/provider/users.dart';
+import 'package:simple_flutter_crud/app/routes/AppRoutes.dart';
 import 'package:simple_flutter_crud/app/view/components/customRaisedButton.dart';
 
 class CreatePage extends StatefulWidget {
   final Users users;
+
   CreatePage(this.users);
   @override
   _CreatePageState createState() => _CreatePageState();
@@ -67,12 +69,14 @@ class _CreatePageState extends State<CreatePage> {
                     child: CustomRaisedButton(
                       onPressed: () {
                         if (_formKey.currentState.validate()) {
-                          widget.users.addUser(User(
+                          widget.users
+                              .addUser(User(
                             name: _name.text,
                             password: _password.text,
-                          ));
-
-                          Navigator.of(context).pop();
+                          ))
+                              .then((value) {
+                            Navigator.of(context).pushNamed(AppRoutes.home);
+                          });
                         }
                       },
                       text: "Create",
